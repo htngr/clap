@@ -5,6 +5,7 @@
 #![warn(missing_docs)]
 #![warn(clippy::print_stderr)]
 #![warn(clippy::print_stdout)]
+#![feature(iter_intersperse)]
 
 mod render;
 

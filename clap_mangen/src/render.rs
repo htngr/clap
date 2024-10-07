@@ -14,7 +14,12 @@ pub(crate) fn about(roff: &mut Roff, cmd: &clap::Command) {
         Some(about) => format!("{name} - {about}"),
         None => name.to_owned(),
     };
-    roff.text([roman(s)]);
+    roff.text(
+        s.lines()
+            .map(roman)
+            .intersperse(roff::line_break())
+            .collect::<Vec<Inline>>(),
+    );
 }
 
 pub(crate) fn description(roff: &mut Roff, cmd: &clap::Command) {
